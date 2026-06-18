@@ -1,0 +1,14 @@
+{
+  "name": "malogg",
+  "version": "1.0.0",
+  "description": "This is an alternative package to morgan to log the request details to the console during development",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "malog"
+  ],
+  "author": "SANGWA Marius",
+  "license": "MIT"
+}
