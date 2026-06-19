@@ -1,15 +1,5 @@
 // ANSI Color codes
-const colors = {
-  reset: '\x1b[0m',
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  magenta: '\x1b[35m',
-  cyan: '\x1b[36m',
-  white: '\x1b[37m',
-};
-
+const {colors} = require("./colors")
 const malog = (req, res, next) => {
   const startTime = Date.now();
   const originalSend = res.send;
@@ -28,7 +18,7 @@ const malog = (req, res, next) => {
       statusColor = colors.green;
     } else if (status >= 300 && status < 400) {
       message = 'REDIRECT';
-      statusColor = colors.cyan;
+      statusColor = colors.lightBlue;
     } else if (status >= 400 && status < 500) {
       message = 'CLIENT_ERROR';
       statusColor = colors.yellow;
@@ -41,7 +31,7 @@ const malog = (req, res, next) => {
                     responseTime < 500 ? colors.yellow : colors.red;
     
     console.log(
-      `${statusColor}[${status}]${colors.reset} ${colors.blue}${method}${colors.reset} ${colors.magenta}${url}${colors.reset} ${colors.white}--${message}${colors.reset} ${timeColor}${responseTime}ms${colors.reset}`
+      `${statusColor}[${status}]${colors.reset} ${colors.blue}${method}${colors.reset} ${colors.purple}${url}${colors.reset} ${colors.white}--${message}${colors.reset} ${timeColor}${responseTime}ms${colors.reset}`
     );
     
     return originalSend.call(this, data);
